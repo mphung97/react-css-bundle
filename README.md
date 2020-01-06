@@ -1,5 +1,4 @@
 ## The sample CSS Modules in ReactJS with minimal classname
-```
 
 ### Demo
 ```
