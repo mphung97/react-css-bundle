@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build": "webpack"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["reactjs", "css-module", "babel-plugin-react-css-modules"],
+  "author": "mphung97",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.7.7",

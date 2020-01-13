@@ -7,8 +7,8 @@ const incstr = require('incstr');
 function createUniqueIdGenerator() {
   const index = {};
   const generateNextId = incstr.idGenerator({
-		prefix: 'pp',
-    alphabet: '123456789'
+		prefix: 'pp_',
+    alphabet: '0123456789'
   });
 
   return (name) => {
@@ -32,8 +32,8 @@ module.exports = {
 	entry: path.join(__dirname, 'src/app.js'),
 	context: path.resolve(__dirname, 'src'),
 	output: {
-		path: path.join(__dirname, 'build'),
-		filename: '[name].[hash].js'
+		filename: '[name].[hash].js',
+		path: path.join(__dirname, 'build')
 	},
 	devServer: {
 		open: false,
