@@ -1,6 +1,14 @@
 import React from 'react';
+/**
+ * if config with eslint need disable https://eslint.org/docs/rules/no-unused-vars
+ * when use a single css file import 'file.css';
+ */
+
+// [SCOPE LOCAL] custom css
 import demo from './demo.scss';
 import demo1 from './demo1.scss';
+
+// [SCOPE LOCAL] bootstrapcss
 import bootstrap from './bootstrap.css';
 
 function Demo(props) {

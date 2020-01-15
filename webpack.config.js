@@ -2,26 +2,37 @@ const { HotModuleReplacementPlugin } = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+/**
+ * @incstr lib to create unique id from pattern
+ */
 const incstr = require('incstr');
 
-function createUniqueIdGenerator() {
-  const index = {};
-  const generateNextId = incstr.idGenerator({
-		prefix: 'pp_',
-    alphabet: '0123456789'
-  });
 
-  return (name) => {
-    if (index[name]) {
-      return index[name];
-    }
-    index[name] = generateNextId();
-    return index[name];
-  };
+/**
+ * @createUniqueIdGenerator a function to create uniqueId
+ */
+function createUniqueIdGenerator() {
+	const index = {};
+	const generateNextId = incstr.idGenerator({
+		prefix: 'pp_',
+		alphabet: '0123456789'
+	});
+
+	return (name) => {
+		if (index[name]) {
+			return index[name];
+		}
+		index[name] = generateNextId();
+		return index[name];
+	};
 };
 
 const uniqueIdGenerator = createUniqueIdGenerator();
 
+/**
+ * generate css class name
+  */
 function generateScopedName(localName) {
 	return uniqueIdGenerator(localName);
 }
@@ -74,9 +85,7 @@ module.exports = {
 					{
 						loader: MiniCssExtractPlugin.loader,
 						options: {
-							// only enable hot in development
 							hmr: process.env.NODE_ENV === 'development',
-							// if hmr does not work, this is a forceful method.
 							reloadAll: true,
 						},
 					},
